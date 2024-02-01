@@ -1,0 +1,18 @@
+<!-- hello.html -->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h3>Welcome to the Haaga-Helia!</h3>
+    
+    <div>
+        <p th:each="student : ${students}">
+            <span th:text="${student.firstName}"></span> <span th:text="${student.lastName}"></span>
+        </p>
+    </div>
+
+</body>
+</html>
