@@ -32,6 +32,12 @@ public static void main(String[] args) {
 				log.info(bookstore.toString());
 			}
 
+			log.info("haetaan kaikki Naamiot");
+			for (Bookstore bookstore : repository.findByAuthor("George Orwell")) {
+				log.info(bookstore.toString());
+			}
+
+
 		};
 	}
 
