@@ -1,5 +1,8 @@
 package bookstore.bookstore.domain;
 
+
+
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +21,7 @@ public class Bookstore {
     private String isbn;
     private double price;
 
+	
 	@ManyToOne
     @JoinColumn(name = "categoryid")
     private Category category;

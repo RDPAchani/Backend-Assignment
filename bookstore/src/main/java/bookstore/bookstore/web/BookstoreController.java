@@ -1,5 +1,8 @@
 package bookstore.bookstore.web;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import bookstore.bookstore.domain.Bookstore;
 import bookstore.bookstore.domain.BookstoreRepository;
@@ -27,6 +31,24 @@ public class BookstoreController {
         model.addAttribute("bookstores", repository.findAll());
         return "booklist";
     }
+
+
+// RESTful service to get all books
+    @RequestMapping(value="/bookstores", method = RequestMethod.GET)
+    public @ResponseBody List<Bookstore> bookListRest() {	
+        return (List<Bookstore>) repository.findAll();
+    }    
+
+	// RESTful service to get book by id
+    @RequestMapping(value="/bookstores/{id}", method = RequestMethod.GET)
+    public @ResponseBody Optional<Bookstore> findBookRest(@PathVariable("id") Long bookId) {	
+    	return repository.findById(bookId);
+    }  
+
+
+
+
+
 
       @RequestMapping(value = "/add")
     public String addBook(Model model){
