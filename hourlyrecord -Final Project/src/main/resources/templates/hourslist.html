@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<link type="text/css" rel="stylesheet" href="@{/css/bootstrap.min.css}" th:href="@{css/bootstrap.min.css}" />
+<head>
+    <title>Hours</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div class="container">
+		<div class="col-md-4">
+			<h1>Hours</h1>
+		</div>
+		<div class="col-md-4">
+			<span  sec:authentication="name">Name</span>
+			
+		</div>
+		<div class="col-md-4" style="padding:20px 0">
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+			</form>
+		</div>
+    <table class="table table-striped">
+		<tr>
+		    <th>Date</th>
+		    <th>Start Time</th>
+            <th>End Time</th>
+            <th>Description</th>
+			<th>Employer</th>
+
+		</tr>  
+    	<tr th:each = "hourlyrecord : ${hourlyrecords}">
+    		<td th:text="${hourlyrecord.date}"></td>
+            <td th:text="${hourlyrecord.startTime}"></td>
+            <td th:text="${hourlyrecord.endTime}"></td>
+    		<td th:text="${hourlyrecord.description}"></td>  
+			<td th:text="${hourlyrecord.employer.name}"></td>  
+			<td><a th:href="@{/delete/{id}(id=${hourlyrecord.id})}" class="btn btn-danger">Delete</a></td> 
+			<td><a th:href="@{/edit/{id}(id=${hourlyrecord.id})}" class="btn btn-danger">Edit Hours</a></td>  		
+    	</tr>
+		<!--Display total hours worked-->
+		<tr>
+			<td colspan="4"><strong>Total Hours Worked:</strong></td>
+			<td th:text="${totalHours}"></td>
+			<td></td>
+		
+		</tr>
+     </table>    
+	 <a href="/add" class="btn btn-success">Add Hours</a> 	
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <link type="text/css" rel="stylesheet" href="@{/css/bootstrap.min.css}" th:href="@{css/bootstrap.min.css}" />
+<head>
+    <title>Hourslist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Add Hours</h1>
+	<div>
+		<form th:object="${hourlyrecord}" th:action="@{save}" action="#" method="post">
+		  	<label for="date">Date</label>
+			<input type="date" id="title" th:field="*{date}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+		  	<label for="startTime">Start Time</label>
+			<input type="time" id="startTime" th:field="*{startTime}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+		  	<label for="endTime">End Time</label>
+			<input type="time" th:field="*{endTime}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+            <label for="description">Description</label>
+			<input type="text" th:field="*{description}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+            <label for="employer">Employer</label>
+			<select id="employer" th:field="*{employer}" class="form-control">
+				  <option th:each="emp: ${employers}" th:value="${emp.id}" th:text="${emp.name}"></option>
+				  </select>
+				  <div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" value="Save" class="btn btn-success"></input>
+		</form>
+	</div>
+</body>
+</html>
