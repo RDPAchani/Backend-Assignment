@@ -7,22 +7,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
 import org.springframework.boot.test.context.SpringBootTest;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 
-import com.example.hourlyrecord.domain.AppUser;
-import com.example.hourlyrecord.domain.AppUserRepository;
+
 import com.example.hourlyrecord.domain.HourlyRecord;
 import com.example.hourlyrecord.domain.HourlyRecordRepository;
 import com.example.hourlyrecord.domain.EmployerRepository;
 import com.example.hourlyrecord.domain.Employer;
-import com.example.hourlyrecord.HourlyrecordApplication;
+
 
 @SpringBootTest(classes = HourlyrecordApplication.class)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)

@@ -47,11 +47,11 @@ public class WebSecurityConfig {
 		PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
 		// create users with their roles
-		UserDetails user1 = User.withUsername("user").password(passwordEncoder.encode("user")).roles("USER").build();
+		UserDetails user1 = User.withUsername("preshika").password(passwordEncoder.encode("user")).roles("USER").build();
 
 		users.add(user1);
 
-		UserDetails user2 = User.withUsername("admin").password(passwordEncoder.encode("admin")).roles("USER", "ADMIN")
+		UserDetails user2 = User.withUsername("admin").password(passwordEncoder.encode("user")).roles("USER", "ADMIN")
 				.build();
 
 		users.add(user2);
